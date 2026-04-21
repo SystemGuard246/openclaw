@@ -1,0 +1,28 @@
+{
+  "channel": "telegram",
+  "description": "OpenClaw Telegram bridge — routes Telegram messages to Claude via Grammy.js gateway",
+  "gateway": "gateway.ts",
+  "transport": "long-polling",
+  "features": {
+    "persistence": true,
+    "history_depth": 40,
+    "memory": "sqlite",
+    "heartbeat": true,
+    "skills": true
+  },
+  "commands": [
+    { "command": "start",   "description": "Initialize session" },
+    { "command": "status",  "description": "Show session info and stats" },
+    { "command": "memory",  "description": "List long-term memories" },
+    { "command": "forget",  "description": "Clear all memories for this chat" },
+    { "command": "skills",  "description": "List available skills" },
+    { "command": "run",     "description": "Execute a skill: /run <name> [args]" },
+    { "command": "doctor",  "description": "Run health check" }
+  ],
+  "heartbeat_checks": [
+    { "name": "aurum_state",  "schedule": "*/15 * * * *" },
+    { "name": "system_logs",  "schedule": "*/30 * * * *" },
+    { "name": "disk_space",   "schedule": "0 * * * *" },
+    { "name": "calendar",     "schedule": "5 * * * *" }
+  ]
+}

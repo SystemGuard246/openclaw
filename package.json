@@ -1,0 +1,25 @@
+{
+  "name": "openclaw",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun run gateway.ts",
+    "dev": "bun --hot gateway.ts",
+    "doctor": "bun run doctor.ts",
+    "fix": "bun run doctor.ts --fix"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.5.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.82.0",
+    "grammy": "^1.42.0",
+    "node-cron": "^4.2.1",
+    "openai": "^6.33.0"
+  }
+}
